@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Page</title>
+  <meta name="description" content="Project page for our paper and demo." />
+  <style>
+    .video-container {
+      text-align: center;   /* 让内部元素居中 */
+      width: 80%;
+      height: auto;
+    }
+    .video-container video {
+    width: 100%;           /* 控制大小（核心） */
+    max-width: 900px;     /* 防止太大 */
+    height: auto;
+    border-radius: 12px;  /* 可选：更好看 */
+    }
+    video {
+      width: 100%;
+      height: auto;
+    }
+    :root{
+      --text: #1f2430;
+      --muted: #5d6472;
+      --line: #e8e8ee;
+      --link: #2f78ff;
+      --btn: #2d2d31;
+      --btn-hover: #44444b;
+      --bg: #ffffff;
+      --maxw: 1080px;
+    }
+
+  .pdf-container {
+    position: relative;
+    width: 100%;
+    padding-top: 130%; /* 控制比例 */
+  }
+
+  .pdf-container iframe {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, "Helvetica Neue", Helvetica, Arial, "Noto Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(var(--maxw), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 0 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6px 0 16px;
+    }
+
+    h1 {
+      margin: 10px auto 12px;
+      max-width: 980px;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+    }
+
+    .authors {
+      max-width: 980px;
+      margin: 0 auto 8px;
+      line-height: 1.75;
+      font-size: 16px;
+      color: var(--muted);
+    }
+    .authors a { color: var(--link); }
+
+    .affil {
+      font-size: 16px;
+      margin-top: 2px;
+    }
+
+    .cofirst {
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--btn);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      transition: transform 0.18s ease, background 0.18s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .pill:hover {
+      background: var(--btn-hover);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .pill .icon {
+      display: inline-flex;
+      width: 16px;
+      height: 16px;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .conference {
+      margin-top: 18px;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    .hero-visual {
+      margin: 22px auto 14px;
+      width: min(860px, 100%);
+      text-align: center;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .caption {
+      max-width: 880px;
+      margin: 12px auto 0;
+      color: #30343d;
+      font-size: 16px;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .section {
+      margin-top: 54px;
+      padding-top: 2px;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: clamp(28px, 3.2vw, 40px);
+      margin: 0 0 18px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+    }
+
+    .section p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: #2a2f3a;
+      margin: 0 auto;
+      max-width: 980px;
+      text-align: left;
+    }
+
+    .intro-box {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .pipeline-box {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .figure {
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .figure img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .subcaption {
+      margin-top: 10px;
+      color: #3a4050;
+      font-size: 15px;
+      line-height: 1.65;
+      text-align: left;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 18px;
+      align-items: start;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .card p {
+      margin: 0;
+      text-align: left;
+    }
+
+    .footer {
+      margin: 60px 0 30px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .authors, .affil {
+        font-size: 15px;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .caption, .section p {
+        font-size: 15px;
+      }
+      .pill {
+        font-size: 13px;
+        padding: 9px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <section class="hero">
+      <h1>
+        NaLA: A 3D Native LLM Layout Agent for High-quality 3D Scene Generation
+      </h1>
+
+      <div class="authors">
+        <span>Cheng Wan</span><sup>1</sup>, 
+        <a href="https://sammaoys.github.io/" target="_blank">Yongsen Mao</a><sup>1</sup>,
+        <span>Wenzheng Wu</span><sup>2</sup>, 
+        <span>Yuxuan Xie</span><sup>3</sup>,
+        <a href="https://xccelephant.github.io/" target="_blank">Chucheng Xiang</a><sup>2</sup>, 
+        <a href="https://rainzor.github.io/" target="_blank">Runze Wang</a><sup>2</sup>,
+        <span>Monica Zhang</span><sup>3</sup>,
+        <a href="https://openreview.net/profile?id=~zhongyuan_liu3" target="_blank">Zhongyuan Liu</a><sup>3</sup>,
+        <a href="https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page?id=626" target="_blank">Rushi Dai</a><sup>4</sup>,
+        <a href="https://liuyuan-pal.github.io/index.html" target="_blank">Yuan Liu</a><sup>1</sup>
+      </div>
+
+      <div class="affil">
+        <sup>1</sup> Hong Kong University of Science and Technology,
+      </div>
+
+      <div class="affil">
+        <sup>2</sup> University of Science and Technology of China,
+      </div>
+
+      <div class="affil">
+        <sup>3</sup> Tencent IEG
+      </div>
+
+        <div class="affil">
+        <sup>4</sup> The Hong Kong University of Science and Technology (Guangzhou)
+      </div>
+
+      <div class="conference">ECCV 2026</div>
+
+      <div class="button-row">
+        <a class="pill" href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">
+          arXiv
+        </a>
+        <a class="pill" href="https://github.com/adamcwan/NaLA-code" target="_blank" rel="noopener noreferrer">
+          Code
+        </a>
+      </div>
+
+    </section>
+
+            <!-- 4. Additional demos -->
+    <section class="section demo-box" id="demo">
+
+      <div class="figure">
+        <!-- Replace with your video demo -->
+        <video controls autoplay muted playsinline poster="assets/demo_poster.jpg">
+          <source src="assets/demo_scene.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="caption">
+        <strong>NaLA</strong> directly perceives point clouds of scenes and assets, and generates end-to-end placements with a coarse-to-fine 3D pose decoding strategy.
+      </div>
+    </section>
+
+        <!-- 4. Additional demos -->
+    <section class="section demo-box" id="demo">
+
+      <div class="figure">
+        <!-- Replace with your video demo -->
+        <video controls autoplay muted playsinline poster="assets/demo_poster.jpg">
+          <source src="assets/demo_overview.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="caption">
+        <strong>NaLA</strong> directly perceives point clouds of scenes and assets, and generates end-to-end placements with a coarse-to-fine 3D pose decoding strategy.
+      </div>
+    </section>
+    <p></p>
+    <p></p>
+
+    <!-- 1. Introduction -->
+    <section class="section intro-box" id="introduction">
+      <h2>Introduction</h2>
+      <p>
+        Large Language Models have recently become central planners for 3D scene generation, but existing layout agents still rely on general-purpose backbones that are limited in input modalities, output representations, and spatial reasoning. They typically consume only text or image descriptions, which do not capture detailed 3D geometry, and they often predict poses in a token-by-token textual format that is inefficient and imprecise.
+      </p>
+      <p style="margin-top:14px;">
+        <strong>NaLA</strong> addresses these issues by introducing geometry perception for both scenes and assets, together with an efficient coarse-to-fine asset pose generation framework. The model encodes point clouds from the scene and asset library, injects them into the LLM backbone, and autoregressively generates placements in a compact format. Trained with a two-stage strategy on high-quality 3D layout datasets, NaLA learns strong 3D reasoning and layout planning abilities.
+      </p>
+      <div class="figure">
+      <!-- Replace with your pipeline figure -->
+      <img src="assets/teaser.jpg" alt="NaLA pipeline figure" />
+      </div>
+      <div class="caption">
+      Given a design prompt and a set of 3D assets, NaLA arranges both large furniture and small objects into plausible layouts by reasoning over point-cloud geometry and predicting poses via a coarse-to-fine mechanism.</div>      
+    </section>
+    <p></p>
+    <p></p>
+
+
+    <!-- 2. Pipeline -->
+    <section class="section pipeline-box" id="pipeline">
+      <h2>Pipeline</h2>
+      <p>
+        NaLA follows an end-to-end pipeline. First, point clouds of the scene and each asset are encoded into tokens. These <strong>input 3D tokens</strong> are combined with text tokens and fed into the LLM. Then, the model utilizes specially-designed <strong>output anchoring tokens</strong> to predict a coarse grid location and orientation, followed by a <strong>output residual token</strong> that outputs fine-grained pose residuals, scale, and rotation refinement. Special <strong>ID tokens</strong> are used so that each predicted pose is matched to the correct asset.
+      </p>
+      <div class="figure">
+        <!-- Replace with your pipeline figure -->
+        <img src="assets/pipeline.jpg" alt="NaLA pipeline figure" />
+      </div>
+      <div class="caption">
+      Overview of the NaLA pipeline.
+
+    </section>
+    <p></p>
+    <p></p>
+
+    <!-- 3. Results -->
+    <section class="section results-box" id="results">
+      <h2>Results</h2>
+      <p>
+        We compare NaLA against representative baselines on physical plausibility, semantic plausibility, and visual aesthetics. NaLA achieves the best overall performance, balancing physical precision with semantic richness.
+        <div class="figure">
+        <!-- Replace with your pipeline figure -->
+        <img src="assets/results_quantitative.jpg" alt="NaLA pipeline figure" />
+        </div>
+        <div class="caption">
+        Quantitative comparison against baseline methods. Bold indicates the best result and underlined indicates the second best.        </div>
+
+
+        <div class="figure">
+        <!-- Replace with your pipeline figure -->
+        <img src="assets/results_qualitative.jpg" alt="NaLA pipeline figure" />
+        </div>
+        <div class="caption">
+        Qualitative comparison of layout generation. Each row shows top-down views for one scene type (bedroom, conference room, storage); each column shows results from a different method under identical room and asset conditions.        </div>
+
+      <div class="footer">© 2026 NaLA Project Page</div>
+
+  </div>
+</html>
